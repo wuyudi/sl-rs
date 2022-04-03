@@ -269,9 +269,8 @@ fn option(s: &str, opt: &mut Options) {
 }
 
 fn main() {
-    let args = env::args().skip(1).collect::<Vec<_>>();
     let mut opt = Options::default();
-    args.iter().for_each(|s| option(s, &mut opt));
+    env::args().into_iter().for_each(|s| option(&s, &mut opt));
     let mut sum: usize = 0;
     let mut s = [Smokes::default(); 1000];
     initscr();
